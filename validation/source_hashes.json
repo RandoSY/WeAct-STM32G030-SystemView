@@ -25,6 +25,7 @@
   "openocd/stlink-legacy.cfg": "3d22458a721526e885569972c66f9850919a50c87705572530cb478d1800f231",
   "openocd/stlink.cfg": "b6d24c3a6de8508c7bafcf388d749ba602767f47c76a37c2d692588330e9647d",
   "projects.json": "3cb1a4a161cb58599ae7a7e5350210b815389a3a9636578a9072ce3b42e9a288",
+  "projects/blink/Inc/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "projects/blink/Src/main.c": "b73e072cbf5a95e9aa4a9057c2eb2a6d628db49ebb52b56d15d18c57e5df6c66",
   "projects/systemview_demo/Inc/FreeRTOSConfig.h": "7880b9baa6ea1e0eb05eb7cfa0fb9ed1e8ca1ce43407b3ae5b96be9ab42fe0aa",
   "projects/systemview_demo/Inc/SEGGER_RTT_Conf.h": "2bfe0325d67fbd35b486fe5a13dcb63bd583fb2c2115cc13b0bfb40a08afff4b",
