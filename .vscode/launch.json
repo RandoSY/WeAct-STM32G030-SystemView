@@ -1,0 +1,188 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Pico/yapicoprobe: SystemView demo (release)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/release/systemview_demo/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/cmsis-dap.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "G030: build trace release",
+      "postLaunchCommands": [
+        "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+      ]
+    },
+    {
+      "name": "Pico/yapicoprobe: first blink",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/debug/blink/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/cmsis-dap.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "G030: build first blink",
+      "postLaunchCommands": [
+        "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+      ]
+    },
+    {
+      "name": "Pico/yapicoprobe: inspect trace demo (debug)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/debug/systemview_demo/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/cmsis-dap.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "G030: build trace debug",
+      "postLaunchCommands": [
+        "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+      ]
+    },
+    {
+      "name": "CMSIS-DAP: attach matching release trace image",
+      "type": "cortex-debug",
+      "request": "attach",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/release/systemview_demo/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/cmsis-dap.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}"
+    },
+    {
+      "name": "External ST-Link: first blink",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/debug/blink/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/stlink.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "G030: build first blink",
+      "postLaunchCommands": [
+        "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+      ]
+    },
+    {
+      "name": "External ST-Link: trace demo (debug)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/debug/systemview_demo/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/stlink.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "G030: build trace debug",
+      "postLaunchCommands": [
+        "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+      ]
+    },
+    {
+      "name": "Old ST-Link clone: legacy fallback",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "servertype": "openocd",
+      "device": "STM32G030F6",
+      "interface": "swd",
+      "executable": "${workspaceFolder}/build/debug/systemview_demo/firmware.elf",
+      "armToolchainPath": "${config:cortex-debug.armToolchainPath}",
+      "gdbPath": "${config:cortex-debug.gdbPath}",
+      "serverpath": "${config:cortex-debug.openocdPath}",
+      "searchDir": [
+        "${config:armLessons.openocdScripts}"
+      ],
+      "configFiles": [
+        "${workspaceFolder}/openocd/stlink-legacy.cfg"
+      ],
+      "rtos": "auto",
+      "svdFile": "${config:armLessons.svdFile}",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "G030: build trace debug",
+      "postLaunchCommands": [
+        "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+      ]
+    }
+  ]
+}

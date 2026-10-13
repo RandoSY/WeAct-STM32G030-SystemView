@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "programs": 2,
+  "compiler_source_entries": 44,
+  "external_firmware_inputs": [],
+  "vectors_match_pinned_ST_G030": true,
+  "debug_configurations": 7,
+  "hardware_tested": false,
+  "relocated_debug_and_release": "PASS"
+}

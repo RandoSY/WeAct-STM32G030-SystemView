@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "cases": [
+    "debug:ordinary",
+    "debug:already_masked",
+    "debug:last_tick_before_wrap",
+    "debug:pending_wrap",
+    "debug:pending_wrap_while_masked",
+    "debug:serviced_wrap",
+    "debug:32_bit_rollover",
+    "debug:wrap_between_counter_and_flag",
+    "debug:overflow_interrupt_service",
+    "debug:interrupt_without_update",
+    "debug:three_task_allocations_fit",
+    "release:ordinary",
+    "release:already_masked",
+    "release:last_tick_before_wrap",
+    "release:pending_wrap",
+    "release:pending_wrap_while_masked",
+    "release:serviced_wrap",
+    "release:32_bit_rollover",
+    "release:wrap_between_counter_and_flag",
+    "release:overflow_interrupt_service",
+    "release:interrupt_without_update",
+    "release:three_task_allocations_fit"
+  ],
+  "compiled_arm_code": true,
+  "modeled_heap_free_bytes_after_three_tasks": {
+    "debug": 1496,
+    "release": 1496
+  },
+  "physical_peripherals_emulated": false,
+  "hardware_tested": false,
+  "scope": "timestamp arithmetic, pending-overflow race, interrupt service, PRIMASK preservation and three startup task allocations",
+  "binary_sha256": {
+    "debug": "57b5056bd63b88ff32e6fd88b125896005a72bad937ec89db31bb2f44f90de83",
+    "release": "80fc577a08c45cc77a8ff7a488732160bcb066f5a889628da208933073b7c091"
+  }
+}

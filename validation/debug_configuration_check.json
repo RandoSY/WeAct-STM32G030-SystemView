@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "configs": 7,
+  "extension_schema": "Cortex-Debug 1.12.1 required fields/enums",
+  "openocd_parse": [
+    {
+      "config": "cmsis-dap",
+      "result": "PASS",
+      "probe_access": false
+    },
+    {
+      "config": "stlink",
+      "result": "PASS",
+      "probe_access": false
+    },
+    {
+      "config": "stlink-legacy",
+      "result": "PASS",
+      "probe_access": false
+    }
+  ],
+  "probe_connected_during_check": false,
+  "VSCode_UI_tested": false
+}

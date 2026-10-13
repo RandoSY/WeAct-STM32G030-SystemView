@@ -1,0 +1,125 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "G030: build all debug",
+      "type": "process",
+      "command": "${config:armLessons.pythonPath}",
+      "args": [
+        "${workspaceFolder}/build.py",
+        "all",
+        "--profile",
+        "debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ARM_GCC_BIN": "${config:cortex-debug.armToolchainPath}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "G030: build all release",
+      "type": "process",
+      "command": "${config:armLessons.pythonPath}",
+      "args": [
+        "${workspaceFolder}/build.py",
+        "all",
+        "--profile",
+        "release"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ARM_GCC_BIN": "${config:cortex-debug.armToolchainPath}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "G030: build first blink",
+      "type": "process",
+      "command": "${config:armLessons.pythonPath}",
+      "args": [
+        "${workspaceFolder}/build.py",
+        "blink",
+        "--profile",
+        "debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ARM_GCC_BIN": "${config:cortex-debug.armToolchainPath}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "G030: build trace debug",
+      "type": "process",
+      "command": "${config:armLessons.pythonPath}",
+      "args": [
+        "${workspaceFolder}/build.py",
+        "systemview_demo",
+        "--profile",
+        "debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ARM_GCC_BIN": "${config:cortex-debug.armToolchainPath}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "G030: build trace release",
+      "type": "process",
+      "command": "${config:armLessons.pythonPath}",
+      "args": [
+        "${workspaceFolder}/build.py",
+        "systemview_demo",
+        "--profile",
+        "release"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ARM_GCC_BIN": "${config:cortex-debug.armToolchainPath}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    }
+  ]
+}

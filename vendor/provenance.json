@@ -1,0 +1,44 @@
+[
+  {
+    "repository": "https://github.com/STMicroelectronics/stm32g0xx-hal-driver",
+    "commit": "289ef6c8ff0922878e99d253f29be76851f8f28e",
+    "directory": "vendor/STM32G0xx_HAL_Driver"
+  },
+  {
+    "repository": "https://github.com/STMicroelectronics/cmsis-device-g0",
+    "commit": "7c77b7cbcee497dfbb5cc08f9562a80515e78013",
+    "directory": "vendor/CMSIS_Device_G0"
+  },
+  {
+    "repository": "https://github.com/ARM-software/CMSIS_5",
+    "commit": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+    "ref": "5.9.0",
+    "directory": "vendor/CMSIS_Core"
+  },
+  {
+    "repository": "https://github.com/SEGGERMicro/SystemView",
+    "commit": "92ca7a810c5765ba64911919acd511c61b6b083f",
+    "directory": "vendor/SystemView",
+    "local_changes": [
+      "FreeRTOS task metadata capacity reduced to two"
+    ]
+  },
+  {
+    "repository": "https://github.com/SEGGERMicro/RTT",
+    "commit": "4d8feab3150f86f37a9d323ddc88d6cdf5673072",
+    "directory": "vendor/RTT",
+    "local_changes": []
+  },
+  {
+    "repository": "https://github.com/FreeRTOS/FreeRTOS",
+    "ref": "V9.0.0",
+    "commit": "165c24cba94e3d3f386c3b77d3bb0f4a524d8511",
+    "directory": "vendor/FreeRTOS_SystemView",
+    "notes": "Local FreeRTOS V9 copy with official SEGGER V9 scheduler patch and CM0 SysTick hooks. No parent-directory dependency."
+  },
+  {
+    "directory": "debug",
+    "source": "https://www.keil.com/pack/Keil.STM32G0xx_DFP.2.1.0.pack",
+    "notes": "STM32G030.svd and pack Apache license, no compiler-pack dependency."
+  }
+]

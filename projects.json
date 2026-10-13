@@ -1,0 +1,58 @@
+{
+  "blink": {
+    "rtos": false,
+    "stdio": false,
+    "drivers": [
+      "stm32g0xx_hal.c",
+      "stm32g0xx_hal_rcc.c",
+      "stm32g0xx_hal_rcc_ex.c",
+      "stm32g0xx_hal_gpio.c",
+      "stm32g0xx_hal_cortex.c",
+      "stm32g0xx_hal_dma.c",
+      "stm32g0xx_hal_flash.c",
+      "stm32g0xx_hal_flash_ex.c",
+      "stm32g0xx_hal_pwr.c",
+      "stm32g0xx_hal_pwr_ex.c",
+      "stm32g0xx_hal_tim.c",
+      "stm32g0xx_hal_tim_ex.c"
+    ],
+    "handlers": [
+      "NMI_Handler",
+      "HardFault_Handler",
+      "SysTick_Handler"
+    ],
+    "source_lesson": "WeAct PA4 active-low LED, no RTOS",
+    "trace": false,
+    "defines": []
+  },
+  "systemview_demo": {
+    "rtos": true,
+    "stdio": false,
+    "drivers": [
+      "stm32g0xx_hal.c",
+      "stm32g0xx_hal_rcc.c",
+      "stm32g0xx_hal_rcc_ex.c",
+      "stm32g0xx_hal_gpio.c",
+      "stm32g0xx_hal_cortex.c",
+      "stm32g0xx_hal_dma.c",
+      "stm32g0xx_hal_flash.c",
+      "stm32g0xx_hal_flash_ex.c",
+      "stm32g0xx_hal_pwr.c",
+      "stm32g0xx_hal_pwr_ex.c",
+      "stm32g0xx_hal_tim.c",
+      "stm32g0xx_hal_tim_ex.c"
+    ],
+    "handlers": [
+      "NMI_Handler",
+      "HardFault_Handler",
+      "SysTick_Handler",
+      "TIM3_IRQHandler",
+      "TIM17_IRQHandler",
+      "SVC_Handler",
+      "PendSV_Handler"
+    ],
+    "source_lesson": "Two-task FreeRTOS/SystemView teaching example",
+    "trace": true,
+    "defines": []
+  }
+}

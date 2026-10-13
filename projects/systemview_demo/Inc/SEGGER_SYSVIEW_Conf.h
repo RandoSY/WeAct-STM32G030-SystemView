@@ -1,0 +1,16 @@
+#ifndef SEGGER_SYSVIEW_CONF_H
+#define SEGGER_SYSVIEW_CONF_H
+unsigned int SystemView_GetTimestamp(void);
+unsigned int SystemView_GetInterruptId(void);
+#define SEGGER_SYSVIEW_GET_TIMESTAMP() SystemView_GetTimestamp()
+#define SEGGER_SYSVIEW_GET_INTERRUPT_ID() SystemView_GetInterruptId()
+#define SEGGER_SYSVIEW_TIMESTAMP_BITS 32
+#define SEGGER_SYSVIEW_RTT_CHANNEL 1
+#ifndef TRACE_BUFFER_BYTES
+#define TRACE_BUFFER_BYTES 1024
+#endif
+#define SEGGER_SYSVIEW_RTT_BUFFER_SIZE TRACE_BUFFER_BYTES
+#define SEGGER_SYSVIEW_MAX_STRING_LEN 48
+#define SEGGER_SYSVIEW_MAX_ARGUMENTS 2
+#define SEGGER_SYSVIEW_USE_STATIC_BUFFER 1
+#endif

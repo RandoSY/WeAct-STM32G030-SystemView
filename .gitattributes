@@ -1,0 +1,3 @@
+# Preserve the reviewed source bytes and recorded SHA-256 hashes on checkout.
+* -text
+*.pdf binary

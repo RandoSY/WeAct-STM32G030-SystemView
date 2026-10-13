@@ -1,0 +1,53 @@
+{
+  "compiler": "arm-none-eabi-gcc.exe (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203",
+  "projects": [
+    {
+      "target": "blink",
+      "flash_bytes": 3472,
+      "ram_reserved_bytes": 1048,
+      "flash_limit": 32768,
+      "ram_limit": 8192,
+      "newlib_heap_bytes": 0,
+      "msp_stack_bytes": 1024,
+      "verified_vectors": [
+        "Reset_Handler",
+        "NMI_Handler",
+        "HardFault_Handler",
+        "SysTick_Handler"
+      ],
+      "binary_sha256": "a32fd9d3081e418b7101a604c41b9567bb9e45f8f7e931da240de97907545d29",
+      "hardware_tested": false,
+      "ram_headroom_bytes": 7144,
+      "flash_headroom_bytes": 29296
+    },
+    {
+      "target": "systemview_demo",
+      "flash_bytes": 11000,
+      "ram_reserved_bytes": 6968,
+      "flash_limit": 32768,
+      "ram_limit": 8192,
+      "newlib_heap_bytes": 0,
+      "msp_stack_bytes": 1024,
+      "verified_vectors": [
+        "Reset_Handler",
+        "NMI_Handler",
+        "HardFault_Handler",
+        "SysTick_Handler",
+        "TIM3_IRQHandler",
+        "TIM17_IRQHandler",
+        "SVC_Handler",
+        "PendSV_Handler"
+      ],
+      "binary_sha256": "80fc577a08c45cc77a8ff7a488732160bcb066f5a889628da208933073b7c091",
+      "hardware_tested": false,
+      "ram_headroom_bytes": 1224,
+      "flash_headroom_bytes": 21768,
+      "systemview_buffer_bytes": 1024,
+      "freertos_heap_bytes": 4096,
+      "timestamp_hz": 1000000,
+      "timestamp_bits": 32,
+      "runtime_stack_high_water_verified": false,
+      "timestamp_source": "TIM3 16-bit plus overflow extension"
+    }
+  ]
+}
