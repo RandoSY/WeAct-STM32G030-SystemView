@@ -27,10 +27,12 @@ All three OpenOCD configurations parsed offline with initialization disabled;
 no probe was accessed. Seven VS Code profiles passed installed Cortex-Debug
 1.12.1 required-field/enum checks. No VS Code UI session on G030 was exercised.
 
-Hardware is not here yet. These remain pending: target supply and LED polarity,
-64 MHz clock/timer rate, sustained rollover continuity, actual task/interrupt
-stack margins with recording active, Pico CMSIS-DAP/RTT ownership and live
-SystemView capture without lost events. No existing board was flashed.
+First physical G030/Pico checks passed on 2026-10-13. See HARDWARE_RESULTS.md
+and hardware_*.json for programming verification/readback, live three-task
+execution, heap/stack observations and channel-0 RTT text. Live SystemView
+capture, sustained event loss/timing checks and stack margins under active
+recording remain pending. The new VS Code RTT configuration was checked against
+the installed 1.13.0-pre10 schema; its UI has not been visually exercised here.
 
 Board facts were checked against WeAct v1.0 schematic at repository commit
 f692e4e2e853ae9610aa337e2222c6d6d73416d8 and ST G030 datasheet DS12991 Rev 6.

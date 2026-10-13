@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "transport": "OpenOCD RTT over existing CMSIS-DAP/SWD",
+  "console_channel": 0,
+  "console_bytes": 225,
+  "work_status_received": true,
+  "channel_information": "Channels: up=2, down=2\nUp-channels:\n0: Terminal 128 0\n1: SysView 1024 0\nDown-channels:\n0: Terminal 8 0\n1: SysView 8 0",
+  "live_systemview_recording_tested": false
+}

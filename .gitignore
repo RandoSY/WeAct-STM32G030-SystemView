@@ -3,3 +3,4 @@
 *.pyc
 /.vscode/settings.json
 /validation/*.log
+/validation/hardware_backup.json

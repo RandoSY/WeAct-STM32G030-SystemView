@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "extension": "1.13.0-pre10",
+  "profiles": [
+    "Pico/yapicoprobe: SystemView demo (release)",
+    "Pico/yapicoprobe: inspect trace demo (debug)",
+    "CMSIS-DAP: attach matching release trace image",
+    "External ST-Link: trace demo (debug)",
+    "Old ST-Link clone: legacy fallback"
+  ],
+  "channel": 0,
+  "physical_rtt_console_tested": true,
+  "vscode_gui_tested": false
+}

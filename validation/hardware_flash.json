@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "probe": "yapicoprobe CMSIS-DAPv2",
+  "probe_serial": "E6635C08CB5B2634",
+  "profile": "release",
+  "image": "build/release/systemview_demo/firmware.elf",
+  "flash_bytes": 11000,
+  "binary_sha256": "80fc577a08c45cc77a8ff7a488732160bcb066f5a889628da208933073b7c091",
+  "openocd_verify": true,
+  "readback_matches_binary": true,
+  "backup": {
+    "file": "WeAct_G030_before_FreeRTOS_20261013_182349.bin",
+    "sha256": "54f8eb0c0a7da0bbcaa9ac7a7a15cc2b917f97ef09403aeeb14f592cb59bbfd8",
+    "bytes": 32768,
+    "location": "Local output/hardware-backups, outside this repository"
+  },
+  "readback": "WeAct_G030_FreeRTOS_20261013_182349_readback.bin",
+  "target_left_running": true
+}

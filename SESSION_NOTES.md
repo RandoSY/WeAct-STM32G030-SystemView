@@ -1,22 +1,32 @@
 # Restart context
 
-Standalone WeAct STM32G030F6P6 package: 32 KiB flash, 8 KiB RAM, 64 MHz HSI/PLL.
-Two images: blink and systemview_demo. Native FreeRTOS V9, LEDtask and WorkTask;
-Pico/yapicoprobe CMSIS-DAP for debug, RTT channel 1 via TCP 19111 for SystemView.
-Channel 0 provides a small nonblocking RTT console, without UART wiring.
-WeAct active-low LED PA4. GP2 -> CLK/PA14, GP3 -> DIO/PA13, common ground;
-optional GP6 -> NRST. A14 button shares SWCLK: leave it alone while probing.
+This is track 1: Duke STM32F0-to-G0 tutorial/FreeRTOS/SystemView project.
+Track 2 is the separate WeAct_G030F6P6_Blinky_Debug_v1.1.4 hardware test.
+Track 3 is RandoSY/px-fwlib branch feature/stm32g030-weact-cli. Keep the three
+code histories and build outputs separate; reuse proven SWD settings as useful.
 
-All source dependencies are inside this folder; host tools are external.
-Open this folder in VS Code. Build: python build.py all; release adds
---profile release. See README.md for wiring, first blink and live capture.
+On 2026-10-13 the user authorized building/flashing our FreeRTOS demo. The
+WeAct/Pico is now available. Release image flashed via CMSIS-DAPv2/OpenOCD,
+verify + byte-for-byte readback passed. Original full flash backup is in the
+parent output/hardware-backups folder (local only). The board was left running
+FreeRTOS; temporary OpenOCD was shut down to release the probe for VS Code.
 
-Debug/release and relocation checks pass. Trace reserves 6968/8192 RAM bytes;
-22 compiled ARM emulation tests pass, including timestamp races and modeled
-three-task allocation. Modeled heap free: 1496 bytes. This is not hardware proof.
+See validation/HARDWARE_RESULTS.md and hardware_*.json for measured evidence.
+Three tasks seen, counters advance, failure flags zero, clock variable 64 MHz.
+Heap free 1496 bytes; stack unused minima LED 148/Work 210/Idle 106 words.
+RAM reserved 6968/8192; release flash 11000/32768. These margins are from a short
+run before active SystemView recording. MSP stack was not measured.
 
-User confirms WeAct and Pico hardware has not arrived. No physical G030 flash,
-scheduler/stack/timestamp test or live trace was performed. First hardware stage
-is blink, then task/clock checks, then active recording and overflow checks.
-The Nucleo F031 and old G031 packages remain separate. Ultimate goal is
-SystemView mastery for a user familiar with VS Code/C but not an embedded expert.
+Live RTT channel 0 text passed through OpenOCD/TCP. Channel 1 SysView is present
+but live SystemView recording is pending. VS Code trace launch and attach
+profiles now enable the channel-0 RTT terminal. The config was schema-checked,
+not visually tested in the VS Code GUI. docs/RTT_AND_UART.md explains listening.
+
+No UART is enabled in the demo. Optional standard Pico UART wiring: GP4 TX to
+WeAct PA12 RX, GP5 RX to PA11 TX, common GND. Firmware needs pin remap + USART1.
+COM13 currently CDC-UART; COM14 CDC-DEBUG. UART wires are unnecessary for RTT.
+
+Build: python build.py systemview_demo --profile release. Debug uses --profile
+debug. For the currently flashed image select the matching release attach
+profile. Ultimate goal remains live SystemView mastery. Do not overwrite the
+separate hardware-test Blinky or PX-fwlib source during track-1 work.

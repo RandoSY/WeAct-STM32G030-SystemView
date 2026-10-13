@@ -8,9 +8,16 @@ The internal oscillator supplies 64 MHz; the board crystal is not required.
 All firmware libraries, startup, linker script and SVD are bundled here.
 The Nucleo F031 and previous G031 packages are separate and preserved.
 
-**Hardware verification is pending.** Your WeAct/Pico hardware has not arrived.
-Debug, release, relocation, startup/vector, memory and compiled-ARM logic checks
-can be completed without it. Do not flash this image onto the NUCLEO-F031K6.
+**First hardware checks passed on 2026-10-13.** The release FreeRTOS demo was
+flashed and verified on your WeAct board through Pico/yapicoprobe. GDB saw all
+three tasks, advancing counters, clear failure flags and 1,496 bytes free in
+the RTOS heap. Live RTT console text was received. Live SystemView recording
+remains pending. See [hardware results](validation/HARDWARE_RESULTS.md) and
+[RTT/UART listening instructions](docs/RTT_AND_UART.md).
+
+This is the Duke-derived tutorial project. Your proven hardware-test Blinky
+and the earlier PX-fwlib port remain separate projects. Do not flash this
+image onto the NUCLEO-F031K6.
 
 ## What you will see
 
@@ -209,10 +216,12 @@ outside the reservations. The budget already includes:
 LED stack is 192 words (768 bytes), Work stack 256 words (1,024 bytes), and
 idle stack 128 words (512 bytes), all inside the RTOS heap. The compiled V9
 allocation code left **1,496 heap bytes** after modeled creation of those three
-tasks in ARM emulation. That is not a physical run or a runtime stack result.
+tasks in ARM emulation. The first physical run also measured 1,496 free heap bytes; observed unused
+stack minima were LED 148 words, Work 210 words and idle 106 words before
+active tracing. See validation/HARDWARE_RESULTS.md.
 Do not add unused heap or unused task stacks to the 1,224-byte linker spare
 figure as if they were interchangeable memory. Measure margins during the
-first real recording; they have not yet been measured on a G030.
+first real recording; active-trace margins remain to be measured.
 
 Release trace flash: **11,000 / 32,768 bytes**. Debug trace: **12,224 bytes**.
 The debugger-compatible `uxTopUsedPriority` constant is retained in flash.
@@ -255,7 +264,7 @@ python -m pip install unicorn==2.1.4
 python tests/test_timestamp_arm.py
 ```
 
-Validation records identify what was checked. No physical G030/Pico connection
-or live trace capture is claimed. Library revisions and licenses are recorded
+Validation records identify what was checked. First G030/Pico programming,
+RTOS execution and RTT console checks passed; live SystemView capture is pending. Library revisions and licenses are recorded
 in `vendor/provenance.json`. The board schematic was checked at WeAct commit
 `f692e4e2e853ae9610aa337e2222c6d6d73416d8`.

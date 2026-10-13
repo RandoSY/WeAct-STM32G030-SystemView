@@ -1,0 +1,46 @@
+{
+  "result": "PASS",
+  "hardware_tested": true,
+  "debug_interface": "CMSIS-DAPv2 / OpenOCD / GNU Arm GDB",
+  "profile": "release",
+  "samples": [
+    {
+      "SystemCoreClock": 64000000,
+      "boardFailure": 0,
+      "rtosFailure": 0,
+      "assertLine": 0,
+      "traceReady": 1,
+      "timestampReady": 1,
+      "ledIterations": 221,
+      "workIterations": 89,
+      "ledStackWordsFree": 148,
+      "workStackWordsFree": 210,
+      "idleStackWordsFree": 106,
+      "rtosHeapBytesFree": 1496,
+      "timestampHigh": 44236800,
+      "xTickCount": 44023
+    },
+    {
+      "SystemCoreClock": 64000000,
+      "boardFailure": 0,
+      "rtosFailure": 0,
+      "assertLine": 0,
+      "traceReady": 1,
+      "timestampReady": 1,
+      "ledIterations": 241,
+      "workIterations": 97,
+      "ledStackWordsFree": 148,
+      "workStackWordsFree": 210,
+      "idleStackWordsFree": 106,
+      "rtosHeapBytesFree": 1496,
+      "timestampHigh": 48431104,
+      "xTickCount": 48116
+    }
+  ],
+  "task_counters_advance": true,
+  "failure_flags_clear": true,
+  "rtos_threads_seen": true,
+  "stack_high_water_units": "32-bit words",
+  "live_systemview_capture_tested": false,
+  "target_left_running": true
+}

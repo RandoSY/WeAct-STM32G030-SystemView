@@ -116,6 +116,11 @@ def main():
                "searchDir":["${config:armLessons.openocdScripts}"],
                "configFiles":["${workspaceFolder}/openocd/"+probe+".cfg"],"rtos":"auto"}
         if svd: value["svdFile"]="${config:armLessons.svdFile}"
+        if target == "systemview_demo":
+            value["rttConfig"] = {"enabled":True, "address":"0x20000000",
+                "searchSize":8192, "clearSearch":False, "polling_interval":50,
+                "decoders":[{"port":0, "type":"console",
+                    "label":"FreeRTOS RTT console", "inputmode":"disabled"}]}
         if not attach:
             value.update({"runToEntryPoint":"main", "preLaunchTask":"G030: build first blink" if target=="blink" else "G030: build trace "+profile,
                           "postLaunchCommands":["set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
