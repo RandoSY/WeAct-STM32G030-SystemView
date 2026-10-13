@@ -1,6 +1,7 @@
 {
   "result": "PASS",
   "source": "git archive HEAD",
+  "tested_commit": "1373ddb4b0758bbf60c8398005c2b6212c776def",
   "machine_settings_excluded": true,
   "configured_fresh_export": true,
   "debug_and_release_built": true,
