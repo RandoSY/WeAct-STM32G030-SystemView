@@ -10,8 +10,10 @@
   ],
   "channel": 0,
   "physical_rtt_console_tested": true,
-  "vscode_gui_tested": "User observed startup error; fixed OpenOCD startup path tested, GUI relaunch pending",
+  "vscode_gui_tested": true,
   "rtt_address": "ELF _SEGGER_RTT symbol",
   "explicit_search_id": "SEGGER RTT",
-  "initialize_before_rtt": true
+  "initialize_before_rtt": true,
+  "vscode_gui_verification": "User confirmed selecting the RTT terminal and seeing repeated WorkTask: burst complete messages after the startup fix.",
+  "verification_date": "2026-10-13"
 }

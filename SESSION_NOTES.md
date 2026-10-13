@@ -36,4 +36,7 @@ RTT initialization. Profiles now use address auto, searchId SEGGER RTT and
 post-launch/attach monitor resume; sleep 200; halt; maintenance flush register-cache before RTT setup.
 Trace launch pauses after initialization (runToEntryPoint main removed only
 for trace profiles). Same VS Code server tested: RTT start PASS, both channels
-present. Full GUI relaunch confirmation is pending. See rtt_startup_fix.json.
+present. User subsequently confirmed the VS Code RTT terminal displays repeated WorkTask messages. See rtt_startup_fix.json.
+
+The user confirmed live VS Code RTT console text on 2026-10-13. Console channel
+0 is working; live SystemView binary channel-1 recording remains the next step.

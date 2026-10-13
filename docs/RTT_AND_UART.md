@@ -19,8 +19,8 @@ running. The reader must drain the event channel promptly for trace capture.
 The board's live RTT channel 0 was tested via OpenOCD and TCP localhost:19021.
 Repeated "WorkTask: burst complete" messages were received. That temporary
 server was stopped afterward; 19021 is not a permanently running service.
-The VS Code RTT configuration was added and schema-checked; its GUI terminal
-has not been visually tested in this session. Live SystemView recording is
+The VS Code RTT configuration was added and schema-checked. After the startup
+fix, the user confirmed repeated WorkTask messages in the VS Code RTT terminal. Live SystemView recording is
 still pending.
 
 ## Read it in VS Code
@@ -70,6 +70,7 @@ search identifier was also missing from our manually addressed configuration.
 The profiles now use a symbol-derived RTT address, explicit SEGGER RTT ID,
 and firmware initialization before RTT startup. The same VS Code-owned
 OpenOCD server passed rtt start and reported both channels after initialization.
-A fresh VS Code debug-session launch remains to be confirmed by the user.
+The user subsequently confirmed a successful VS Code session and repeated
+WorkTask messages in its RTT terminal.
 End the old session with Shift+F5, select the matching-release attach profile,
 press F5, and press F5 again to continue.

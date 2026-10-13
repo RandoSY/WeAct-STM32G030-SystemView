@@ -6,5 +6,7 @@
   "tested_existing_vscode_openocd": true,
   "target_left_paused": true,
   "channel_information": "Channels: up=2, down=2\nUp-channels:\n0: Terminal 128 0\n1: SysView 1024 0\nDown-channels:\n0: Terminal 8 0\n1: SysView 8 0",
-  "vscode_relaunch_tested": false
+  "vscode_relaunch_tested": true,
+  "vscode_console_confirmed_by_user": true,
+  "user_observed_output": "WorkTask: burst complete (repeated)"
 }
