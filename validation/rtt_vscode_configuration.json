@@ -10,5 +10,8 @@
   ],
   "channel": 0,
   "physical_rtt_console_tested": true,
-  "vscode_gui_tested": false
+  "vscode_gui_tested": "User observed startup error; fixed OpenOCD startup path tested, GUI relaunch pending",
+  "rtt_address": "ELF _SEGGER_RTT symbol",
+  "explicit_search_id": "SEGGER RTT",
+  "initialize_before_rtt": true
 }

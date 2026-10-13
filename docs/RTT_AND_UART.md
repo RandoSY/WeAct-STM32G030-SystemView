@@ -33,8 +33,11 @@ still pending.
    "FreeRTOS RTT console". Expect "WorkTask: burst complete" every 500 ms.
 5. End the session with Shift+F5 before using another probe-owning tool.
 
-The launch configuration searches the G030's 8 KiB SRAM for "SEGGER RTT";
-its channel-0 console decoder is enabled. Both normal trace launch profiles
+The launch configuration locates _SEGGER_RTT from the matching ELF symbols
+and uses the explicit "SEGGER RTT" identifier; its channel-0 console decoder
+is enabled. Trace launch/attach runs the firmware for 200 ms and halts before
+RTT setup so the RAM control block exists. It pauses after initialization
+rather than at main. Press Continue/F5 to receive ongoing output. Both normal trace launch profiles
 and the attach profile have this setting. No COM port or baud rate is selected
 for this OpenOCD RTT connection. Keep the ELF matched to the flashed image.
 
@@ -56,3 +59,17 @@ References:
 - https://github.com/Marus/cortex-debug/wiki/SEGGER-RTT-support
 - https://www.segger.com/products/debug-probes/j-link/technology/about-real-time-transfer/
 - https://github.com/rgrr/yapicoprobe/blob/master/doc/hardware.adoc
+
+## RTT startup error fixed on 2026-10-13
+
+The user reported "Protocol error with Rcmd: 01" on "monitor rtt start".
+The CPU was paused at main and the RTT control block was still zero. This
+OpenOCD version returns an error when the control block is absent. An explicit
+search identifier was also missing from our manually addressed configuration.
+
+The profiles now use a symbol-derived RTT address, explicit SEGGER RTT ID,
+and firmware initialization before RTT startup. The same VS Code-owned
+OpenOCD server passed rtt start and reported both channels after initialization.
+A fresh VS Code debug-session launch remains to be confirmed by the user.
+End the old session with Shift+F5, select the matching-release attach profile,
+press F5, and press F5 again to continue.

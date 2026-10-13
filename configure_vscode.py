@@ -117,14 +117,25 @@ def main():
                "configFiles":["${workspaceFolder}/openocd/"+probe+".cfg"],"rtos":"auto"}
         if svd: value["svdFile"]="${config:armLessons.svdFile}"
         if target == "systemview_demo":
-            value["rttConfig"] = {"enabled":True, "address":"0x20000000",
-                "searchSize":8192, "clearSearch":False, "polling_interval":50,
+            value["rttConfig"] = {"enabled":True, "address":"auto",
+                "searchSize":16, "searchId":"SEGGER RTT", "rtt_start_retry":1000,
+                "clearSearch":False, "polling_interval":50,
                 "decoders":[{"port":0, "type":"console",
                     "label":"FreeRTOS RTT console", "inputmode":"disabled"}]}
         if not attach:
             value.update({"runToEntryPoint":"main", "preLaunchTask":"G030: build first blink" if target=="blink" else "G030: build trace "+profile,
                           "postLaunchCommands":["set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
                                                 "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"]})
+        if target == "systemview_demo":
+            # Initialize the running firmware before Cortex-Debug configures RTT.
+            # OpenOCD reports an error if the RTT RAM control block is still zero.
+            initialize=["monitor resume", "monitor sleep 200", "monitor halt", "maintenance flush register-cache"]
+            if attach:
+                value["postAttachCommands"]=initialize
+            else:
+                value.pop("runToEntryPoint", None)
+                value["breakAfterReset"]=True
+                value["postLaunchCommands"].extend(initialize)
         configurations.append(value)
     config("Pico/yapicoprobe: SystemView demo (release)","systemview_demo","release")
     config("Pico/yapicoprobe: first blink", "blink", "debug")

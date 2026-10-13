@@ -30,3 +30,10 @@ Build: python build.py systemview_demo --profile release. Debug uses --profile
 debug. For the currently flashed image select the matching release attach
 profile. Ultimate goal remains live SystemView mastery. Do not overwrite the
 separate hardware-test Blinky or PX-fwlib source during track-1 work.
+
+VS Code RTT startup correction: user saw Rcmd 01 while stopped at main, before
+RTT initialization. Profiles now use address auto, searchId SEGGER RTT and
+post-launch/attach monitor resume; sleep 200; halt; maintenance flush register-cache before RTT setup.
+Trace launch pauses after initialization (runToEntryPoint main removed only
+for trace profiles). Same VS Code server tested: RTT start PASS, both channels
+present. Full GUI relaunch confirmation is pending. See rtt_startup_fix.json.

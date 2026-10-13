@@ -21,16 +21,19 @@
       ],
       "rtos": "auto",
       "svdFile": "${config:armLessons.svdFile}",
-      "runToEntryPoint": "main",
       "preLaunchTask": "G030: build trace release",
       "postLaunchCommands": [
         "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
-        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000",
+        "monitor resume",
+        "monitor sleep 200",
+        "monitor halt",
+        "maintenance flush register-cache"
       ],
       "rttConfig": {
         "enabled": true,
-        "address": "0x20000000",
-        "searchSize": 8192,
+        "address": "auto",
+        "searchSize": 16,
         "clearSearch": false,
         "polling_interval": 50,
         "decoders": [
@@ -40,8 +43,11 @@
             "label": "FreeRTOS RTT console",
             "inputmode": "disabled"
           }
-        ]
-      }
+        ],
+        "searchId": "SEGGER RTT",
+        "rtt_start_retry": 1000
+      },
+      "breakAfterReset": true
     },
     {
       "name": "Pico/yapicoprobe: first blink",
@@ -90,16 +96,19 @@
       ],
       "rtos": "auto",
       "svdFile": "${config:armLessons.svdFile}",
-      "runToEntryPoint": "main",
       "preLaunchTask": "G030: build trace debug",
       "postLaunchCommands": [
         "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
-        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000",
+        "monitor resume",
+        "monitor sleep 200",
+        "monitor halt",
+        "maintenance flush register-cache"
       ],
       "rttConfig": {
         "enabled": true,
-        "address": "0x20000000",
-        "searchSize": 8192,
+        "address": "auto",
+        "searchSize": 16,
         "clearSearch": false,
         "polling_interval": 50,
         "decoders": [
@@ -109,8 +118,11 @@
             "label": "FreeRTOS RTT console",
             "inputmode": "disabled"
           }
-        ]
-      }
+        ],
+        "searchId": "SEGGER RTT",
+        "rtt_start_retry": 1000
+      },
+      "breakAfterReset": true
     },
     {
       "name": "CMSIS-DAP: attach matching release trace image",
@@ -134,8 +146,8 @@
       "svdFile": "${config:armLessons.svdFile}",
       "rttConfig": {
         "enabled": true,
-        "address": "0x20000000",
-        "searchSize": 8192,
+        "address": "auto",
+        "searchSize": 16,
         "clearSearch": false,
         "polling_interval": 50,
         "decoders": [
@@ -145,8 +157,16 @@
             "label": "FreeRTOS RTT console",
             "inputmode": "disabled"
           }
-        ]
-      }
+        ],
+        "searchId": "SEGGER RTT",
+        "rtt_start_retry": 1000
+      },
+      "postAttachCommands": [
+        "monitor resume",
+        "monitor sleep 200",
+        "monitor halt",
+        "maintenance flush register-cache"
+      ]
     },
     {
       "name": "External ST-Link: first blink",
@@ -195,16 +215,19 @@
       ],
       "rtos": "auto",
       "svdFile": "${config:armLessons.svdFile}",
-      "runToEntryPoint": "main",
       "preLaunchTask": "G030: build trace debug",
       "postLaunchCommands": [
         "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
-        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000",
+        "monitor resume",
+        "monitor sleep 200",
+        "monitor halt",
+        "maintenance flush register-cache"
       ],
       "rttConfig": {
         "enabled": true,
-        "address": "0x20000000",
-        "searchSize": 8192,
+        "address": "auto",
+        "searchSize": 16,
         "clearSearch": false,
         "polling_interval": 50,
         "decoders": [
@@ -214,8 +237,11 @@
             "label": "FreeRTOS RTT console",
             "inputmode": "disabled"
           }
-        ]
-      }
+        ],
+        "searchId": "SEGGER RTT",
+        "rtt_start_retry": 1000
+      },
+      "breakAfterReset": true
     },
     {
       "name": "Old ST-Link clone: legacy fallback",
@@ -237,16 +263,19 @@
       ],
       "rtos": "auto",
       "svdFile": "${config:armLessons.svdFile}",
-      "runToEntryPoint": "main",
       "preLaunchTask": "G030: build trace debug",
       "postLaunchCommands": [
         "set {unsigned int}0x40015808 = {unsigned int}0x40015808 | 0x00000002",
-        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000"
+        "set {unsigned int}0x4001580c = {unsigned int}0x4001580c | 0x00040000",
+        "monitor resume",
+        "monitor sleep 200",
+        "monitor halt",
+        "maintenance flush register-cache"
       ],
       "rttConfig": {
         "enabled": true,
-        "address": "0x20000000",
-        "searchSize": 8192,
+        "address": "auto",
+        "searchSize": 16,
         "clearSearch": false,
         "polling_interval": 50,
         "decoders": [
@@ -256,8 +285,11 @@
             "label": "FreeRTOS RTT console",
             "inputmode": "disabled"
           }
-        ]
-      }
+        ],
+        "searchId": "SEGGER RTT",
+        "rtt_start_retry": 1000
+      },
+      "breakAfterReset": true
     }
   ]
 }
