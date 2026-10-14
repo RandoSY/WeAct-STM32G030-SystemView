@@ -120,6 +120,33 @@
         "kind": "build",
         "isDefault": false
       }
+    },
+    {
+      "label": "SystemView: start channel 1 bridge",
+      "type": "process",
+      "command": "${config:armLessons.pythonPath}",
+      "args": [
+        "${workspaceFolder}/systemview_bridge.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "SystemView: open application",
+      "type": "process",
+      "command": "${config:armLessons.systemViewPath}",
+      "args": [
+        "-single",
+        "-port",
+        "19051"
+      ],
+      "problemMatcher": []
     }
   ]
 }

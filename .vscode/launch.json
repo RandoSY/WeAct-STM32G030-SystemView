@@ -35,7 +35,7 @@
         "address": "auto",
         "searchSize": 16,
         "clearSearch": false,
-        "polling_interval": 50,
+        "polling_interval": 5,
         "decoders": [
           {
             "port": 0,
@@ -110,7 +110,7 @@
         "address": "auto",
         "searchSize": 16,
         "clearSearch": false,
-        "polling_interval": 50,
+        "polling_interval": 5,
         "decoders": [
           {
             "port": 0,
@@ -149,7 +149,7 @@
         "address": "auto",
         "searchSize": 16,
         "clearSearch": false,
-        "polling_interval": 50,
+        "polling_interval": 5,
         "decoders": [
           {
             "port": 0,
@@ -229,7 +229,7 @@
         "address": "auto",
         "searchSize": 16,
         "clearSearch": false,
-        "polling_interval": 50,
+        "polling_interval": 5,
         "decoders": [
           {
             "port": 0,
@@ -277,7 +277,7 @@
         "address": "auto",
         "searchSize": 16,
         "clearSearch": false,
-        "polling_interval": 50,
+        "polling_interval": 5,
         "decoders": [
           {
             "port": 0,

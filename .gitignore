@@ -4,3 +4,7 @@
 /.vscode/settings.json
 /validation/*.log
 /validation/hardware_backup.json
+/captures/**/*_events.csv
+/captures/**/*.elf
+/output/
+/tmp/

@@ -20,8 +20,8 @@ The board's live RTT channel 0 was tested via OpenOCD and TCP localhost:19021.
 Repeated "WorkTask: burst complete" messages were received. That temporary
 server was stopped afterward; 19021 is not a permanently running service.
 The VS Code RTT configuration was added and schema-checked. After the startup
-fix, the user confirmed repeated WorkTask messages in the VS Code RTT terminal. Live SystemView recording is
-still pending.
+fix, the user confirmed repeated WorkTask messages in the VS Code RTT terminal. Live SystemView recording is verified. Read SYSTEMVIEW_PROGRESS.md for
+the channel-1 bridge and use IP recorder 127.0.0.1:19111.
 
 ## Read it in VS Code
 

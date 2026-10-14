@@ -11,8 +11,10 @@ The Nucleo F031 and previous G031 packages are separate and preserved.
 **First hardware checks passed on 2026-10-13.** The release FreeRTOS demo was
 flashed and verified on your WeAct board through Pico/yapicoprobe. GDB saw all
 three tasks, advancing counters, clear failure flags and 1,496 bytes free in
-the RTOS heap. Live RTT console text was received. Live SystemView recording
-remains pending. See [hardware results](validation/HARDWARE_RESULTS.md) and
+the RTOS heap. The user confirmed RTT console and live SystemView activity.
+A saved clip decoded to 20,273 events with zero reported overflow events.
+See [live progress and restart steps](docs/SYSTEMVIEW_PROGRESS.md),
+[hardware results](validation/HARDWARE_RESULTS.md) and
 [RTT/UART listening instructions](docs/RTT_AND_UART.md).
 
 This is the Duke-derived tutorial project. Your proven hardware-test Blinky
@@ -125,7 +127,8 @@ The legacy HLA fallback needs an OpenOCD build that still provides that driver.
 ## Flash and inspect the trace demo
 
 Select **Pico/yapicoprobe: SystemView demo (release)**, press F5, then F5 again
-at `main`. Allow several seconds of running, then pause and add these to Watch:
+after the initialization pause. Trace profiles initialize RTT before pausing;
+they no longer stop at `main`. Run for several seconds, then pause and watch:
 
 ```text
 SystemCoreClock
@@ -153,6 +156,32 @@ The matching-release attach profile has no build/download task. Do not attach
 with a different ELF. Debugger pauses change timing; capture a run without them.
 
 ## Record in SystemView
+
+The verified route shares the existing VS Code OpenOCD session. Keep the MCU
+running and use Ctrl+Shift+P > Tasks: Run Task:
+
+1. **SystemView: start channel 1 bridge**. Leave its task terminal running;
+   if a bridge is already running, reuse it.
+2. **SystemView: open application**. In SystemView choose Target > Recorder
+   Configuration > **IP recorder**, IP **127.0.0.1**, port **19111**.
+3. Target > Start Recording; record 5-10 seconds; Target > Stop Recording.
+4. Close any information dialog with OK, inspect the timeline, and use
+   File > Save Recording to preserve the .SVDat with its matching firmware.
+
+`systemview_bridge.py` supplies the 32-byte IP handshake and forwards the raw
+OpenOCD channel-1 stream on port 19022. It uses only Python's standard library,
+discovers this project's OpenOCD TCL port on Windows, and never starts another
+debug server. Other hosts can pass `--tcl-port <port>`. Polling is 5 ms. No COM
+port, extra UART wiring or STM32 Ethernet is required. Channel 0 stays in the
+FreeRTOS RTT console terminal. The saved baseline is under captures/2026-10-13.
+
+The [updated PDF](docs/WeAct_G030_Pico_SystemView_Quickstart.pdf) documents this
+tested workflow, measurements, troubleshooting and saved evidence.
+
+## Optional Pico USB-network route (not the tested setup)
+
+The following earlier procedure uses the Pico's own network recorder instead
+of the verified local bridge. Do not mix its address with the workflow above.
 
 1. Finish debugging with Shift+F5 and close that OpenOCD process. Reset WeAct
    with **NRST** so the flashed trace image runs. Only one of yapicoprobe's

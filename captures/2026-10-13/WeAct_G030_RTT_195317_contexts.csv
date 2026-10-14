@@ -1,0 +1,7 @@
+Name,Type,Core,Stack Information,Activations,Total Blocked Time,Total Run Time,Time Interrupted,CPU Load,Last Run Time,Min Run Time,Max Run Time,Min Blocked Time,Max Blocked Time,Run Time/s,Min Run Time/s,Max Run Time/s
+SysTick,#15,Core 0,,5005,,0.040 366 000 s,0.000 000 ms,0.81 %,0.008 000 ms,0.008 000 ms,0.026 000 ms,,,8.063 000 ms,8.062 000 ms,8.072 000 ms
+TIM17,#38,Core 0,,5005,,0.035 035 000 s,0.000 000 ms,0.70 %,0.007 000 ms,0.007 000 ms,0.007 000 ms,,,7.000 000 ms,7.000 000 ms,7.000 000 ms
+Scheduler,,Core 0,,65,,0.000 746 000 s,0.000 000 ms,0.01 %,0.013 000 ms,0.009 000 ms,0.014 000 ms,,,0.150 000 ms,0.148 000 ms,0.150 000 ms
+LEDtask,@1,Core 0,148 @ 0x20000180,25,0.011 501 000 s,0.004 136 000 s,0.140 000 ms,0.08 %,0.161 000 ms,0.154 000 ms,0.165 000 ms,0.017 000 ms,2.187 000 ms,0.826 000 ms,0.826 000 ms,0.830 000 ms
+WorkTask,@2,Core 0,210 @ 0x200004E0,10,0.000 534 000 s,0.021 564 000 s,0.370 000 ms,0.42 %,2.119 000 ms,2.118 000 ms,2.123 000 ms,0.017 000 ms,0.026 000 ms,4.312 000 ms,4.311 000 ms,4.316 000 ms
+Idle,,Core 0,,30,,4.923 545 000 s,74.049 000 ms,96.89 %,49.066 000 ms,96.345 000 ms,196.808 000 ms,,,979.751 000 ms,979.742 000 ms,979.752 000 ms

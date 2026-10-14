@@ -1,0 +1,12 @@
+{
+  "sessions": [
+    {
+      "started": "2026-10-13T19:53:17",
+      "target_to_host_bytes": 56085,
+      "host_to_target_bytes": 2,
+      "host_hello": "SEGGER SystemView V4.10.00",
+      "handshake_completed": true,
+      "ended": "2026-10-13T19:53:23"
+    }
+  ]
+}

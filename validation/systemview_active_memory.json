@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "hardware_tested": true,
+  "read_without_halting": true,
+  "during_live_SystemView_IP_session": true,
+  "values": {
+    "rtosHeapBytesFree": 1496,
+    "idleStackWordsFree": 106,
+    "workStackWordsFree": 202,
+    "ledStackWordsFree": 140,
+    "workIterations": 8858,
+    "ledIterations": 22144,
+    "boardFailure": 0,
+    "rtosFailure": 0
+  },
+  "stack_units": "32-bit words",
+  "MSP_stack_high_water_measured": false
+}

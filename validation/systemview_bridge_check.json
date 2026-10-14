@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "real_socket_protocol_tests": 3,
+  "fragmented_hello_tested": true,
+  "coalesced_first_command_preserved": true,
+  "events_forwarded_unchanged": true,
+  "disconnect_stops_trace": true,
+  "fresh_generator_matches_launch_and_tasks": true,
+  "firmware_changed": false
+}

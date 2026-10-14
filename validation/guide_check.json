@@ -1,7 +1,8 @@
 {
   "result": "PASS",
   "pages": 4,
-  "rendered_pages_inspected": true,
-  "text_within_page_bounds": true,
-  "hardware_scope_pending": true
+  "all_pages_rendered_and_visually_checked": true,
+  "live_target_SystemView_verified": true,
+  "user_screenshot_confirms_live_GUI": true,
+  "pdf_sha256": "b6fa6f2b533358801123ff077245d775dff99d101ecadb6d5a5c5c838ec8d8f4"
 }

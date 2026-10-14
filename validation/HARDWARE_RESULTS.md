@@ -35,3 +35,12 @@ verification of the new VS Code RTT terminal. No physical UART was enabled.
 
 JSON evidence: hardware_flash.json, hardware_runtime.json,
 hardware_rtt_console.json. The raw logs and flash backup remain local.
+
+## Subsequent live SystemView result
+
+The user confirmed a live timeline (149406 events in the supplied screenshot).
+A saved hardware stream decoded by SystemView contains 20273 events over
+5.004982 seconds, zero reported overflow entries, named tasks/markers and
+monotonic timestamps. See systemview_capture_analysis.json,
+systemview_active_memory.json and ../docs/SYSTEMVIEW_PROGRESS.md. This
+supersedes earlier statements that live recording was pending.

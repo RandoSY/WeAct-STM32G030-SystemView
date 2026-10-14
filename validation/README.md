@@ -37,3 +37,12 @@ the installed 1.13.0-pre10 schema; its UI has not been visually exercised here.
 Board facts were checked against WeAct v1.0 schematic at repository commit
 f692e4e2e853ae9610aa337e2222c6d6d73416d8 and ST G030 datasheet DS12991 Rev 6.
 The board LED wiring is active-low PA4; PA14/A14 button shares SWCLK.
+
+## Subsequent live SystemView result
+
+The user confirmed a live timeline (149406 events in the supplied screenshot).
+A saved hardware stream decoded by SystemView contains 20273 events over
+5.004982 seconds, zero reported overflow entries, named tasks/markers and
+monotonic timestamps. See systemview_capture_analysis.json,
+systemview_active_memory.json and ../docs/SYSTEMVIEW_PROGRESS.md. This
+supersedes earlier statements that live recording was pending.

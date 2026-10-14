@@ -1,0 +1,11 @@
+{
+  "status": "Initial attempt superseded by verified bridge capture; see systemview_capture_analysis.json",
+  "SystemView_process_id": 41260,
+  "recorder": "IP",
+  "host": "127.0.0.1",
+  "port": 19111,
+  "rtt_channel": 1,
+  "polling_interval_ms": 5,
+  "capture_seconds": 8,
+  "base": "WeAct_G030_FreeRTOS_194800"
+}

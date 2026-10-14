@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "type": "live target RTT stream capture through IP handshake bridge",
+  "SystemView_GUI_recording": false,
+  "capture": "captures\\2026-10-13\\WeAct_G030_RTT_195317.SVDat",
+  "bytes": 56085,
+  "sha256": "d4420b90368d57c4728986325d42a3587e29319aedf5e57fc5c80b9494fefcfe",
+  "target_hello": "SEGGER SystemView V3.32.00",
+  "system_description_present": true,
+  "task_names_present": {
+    "LEDtask": true,
+    "WorkTask": true
+  },
+  "saved_stream_requires_SystemView_decode_validation": false,
+  "SystemView_decode_verified": true,
+  "live_IP_recorder_GUI_confirmed_by_user": true
+}

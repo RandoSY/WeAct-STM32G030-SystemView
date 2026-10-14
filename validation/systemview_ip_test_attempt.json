@@ -1,0 +1,10 @@
+{
+  "pid": 40940,
+  "base": "captures\\2026-10-13\\WeAct_G030_IP_195615",
+  "created": [],
+  "process_exit": null,
+  "recorder": "IP",
+  "host": "127.0.0.1",
+  "port": 19111,
+  "status": "Live IP recorder and visible timeline confirmed by user; verified short stream saved separately."
+}

@@ -38,6 +38,7 @@ def main():
     parser.add_argument("--openocd")
     parser.add_argument("--openocd-scripts")
     parser.add_argument("--jlink-server")
+    parser.add_argument("--systemview", help="Optional installed SystemView application")
     parser.add_argument("--svd")
     parser.add_argument("--force", action="store_true", help="Replace generated launch/tasks/extension files")
     args = parser.parse_args()
@@ -70,6 +71,8 @@ def main():
         raise RuntimeError("OpenOCD scripts not found; pass --openocd-scripts")
     jlink = find_file(args.jlink_server, "JLinkGDBServerCL", [
         ("C:/Program Files/SEGGER", "JLink*/JLinkGDBServerCL.exe")])
+    systemview = find_file(args.systemview, "SystemView", [
+        ("C:/Program Files/SEGGER", "SystemView*/SystemView.exe")])
     svd = find_file(args.svd or str(ROOT / "debug/STM32G030.svd"), "__optional_stm32_svd__", [
         (Path.home() / "AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP",
          "*/CMSIS/SVD/STM32G030.svd")])
@@ -91,6 +94,7 @@ def main():
     })
     if jlink:
         settings["cortex-debug.JLinkGDBServerPath"] = str(jlink)
+    settings["armLessons.systemViewPath"] = str(systemview) if systemview else "SystemView"
     if svd:
         settings["armLessons.svdFile"] = "${workspaceFolder}/debug/STM32G030.svd" if svd == (ROOT / "debug/STM32G030.svd").resolve() else str(svd)
     write_json(settings_path, settings)
@@ -105,6 +109,16 @@ def main():
              task("G030: build first blink", "blink", "debug"),
              task("G030: build trace debug", "systemview_demo", "debug"),
              task("G030: build trace release", "systemview_demo", "release")]
+    tasks.extend([
+        {"label":"SystemView: start channel 1 bridge", "type":"process",
+         "command":"${config:armLessons.pythonPath}",
+         "args":["${workspaceFolder}/systemview_bridge.py"],
+         "options":{"cwd":"${workspaceFolder}"}, "problemMatcher":[],
+         "presentation":{"reveal":"always", "panel":"dedicated"}},
+        {"label":"SystemView: open application", "type":"process",
+         "command":"${config:armLessons.systemViewPath}",
+         "args":["-single", "-port", "19051"], "problemMatcher":[]}
+    ])
     write_json(folder / "tasks.json", {"version":"2.0.0", "tasks":tasks})
     configurations=[]
     def config(name, target, profile, probe="cmsis-dap", attach=False):
@@ -119,7 +133,7 @@ def main():
         if target == "systemview_demo":
             value["rttConfig"] = {"enabled":True, "address":"auto",
                 "searchSize":16, "searchId":"SEGGER RTT", "rtt_start_retry":1000,
-                "clearSearch":False, "polling_interval":50,
+                "clearSearch":False, "polling_interval":5,
                 "decoders":[{"port":0, "type":"console",
                     "label":"FreeRTOS RTT console", "inputmode":"disabled"}]}
         if not attach:

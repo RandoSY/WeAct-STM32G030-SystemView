@@ -1,3 +1,31 @@
+# Current result: live SystemView verified (finalized 2026-10-14)
+
+Work remains in track 1, Duke-derived weact_g030_systemview. Keep the user's
+hardware-test Blinky and PX-fwlib port separate. Read docs/SYSTEMVIEW_PROGRESS.md
+and the updated four-page PDF before following older notes below.
+
+User confirmed the live timeline and supplied a screenshot: 149406 events at
+36.902981 s. Saved baseline captures/2026-10-13/WeAct_G030_RTT_195317.SVDat
+was genuinely decoded by SystemView: 20273 events, 5.004982 s, zero reported
+overflow/loss entries, monotonic timestamps, named tasks and markers.
+
+Run the matching release debug/attach profile, continue, then Tasks: Run Task
+> SystemView: start channel 1 bridge. It discovers this project's existing
+OpenOCD and bridges raw RTT TCP 19022 to IP recorder 127.0.0.1:19111 with the
+required 32-byte hello. Run SystemView: open application and use its Target
+menus. Polling is 5 ms; channel 0 stays in the RTT text terminal. The bridge
+never builds/flashes or starts a second probe server. A bridge from the agent
+terminal may still be running: check/reuse it before launching another.
+
+Active trace: heap free1496 bytes; unused LED/Work/Idle stack140/202/106 words.
+Both failure flags zero. MSP high-water and long stress tests not measured.
+GUI helper import failed; CLI decoding and user-supplied screenshot established
+success. Use SystemView menus to save future recordings; automatic CLI save
+around dialogs was unreliable. Earlier pending-live-capture statements are
+superseded by this result. See validation/systemview_capture_analysis.json.
+
+## Earlier session history (superseded where marked pending)
+
 # Restart context
 
 This is track 1: Duke STM32F0-to-G0 tutorial/FreeRTOS/SystemView project.
