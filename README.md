@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/project-banner.svg" alt="WeAct STM32G030 — FreeRTOS + SystemView. VS Code, Pico/yapicoprobe and live RTT trace." width="100%">
+</p>
+
 # WeAct STM32G030F6P6: a friendly FreeRTOS / SystemView example
 
 Start with the [four-page illustrated quick start](docs/WeAct_G030_Pico_SystemView_Quickstart.pdf).
@@ -20,6 +24,17 @@ See [live progress and restart steps](docs/SYSTEMVIEW_PROGRESS.md),
 This is the Duke-derived tutorial project. Your proven hardware-test Blinky
 and the earlier PX-fwlib port remain separate projects. Do not flash this
 image onto the NUCLEO-F031K6.
+
+## On the bench
+
+<p align="center">
+  <img src="docs/assets/weact-pico-bench.jpg" alt="The real bench setup: WeAct STM32G030 on a breadboard at left, wired to a USB-connected Raspberry Pi Pico running yapicoprobe at right." width="860">
+</p>
+
+Your actual hardware: **WeAct STM32G030F6P6 at left, Pico/yapicoprobe at right**,
+connected by SWD on a breadboard carrier. Photo by RandoSY, 2026-10-13;
+the original photo is included unchanged. This is the setup used for the
+hardware checks above. For pin assignments, use the wiring table below.
 
 ## What you will see
 
